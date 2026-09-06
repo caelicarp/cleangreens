@@ -95,6 +95,13 @@ h1 {
   text-align: center;
   font-size: 1em;
 
+  & .quote-button {
+    width: 10em;
+    height: 3em;
+    font-size: 1.2em;
+    border-radius: 99px;
+  }
+
   & img {
     min-width: 200px;
     max-width: 300px;
@@ -128,6 +135,10 @@ footer {
 
     & img {
       min-width: 1.5em;
+    }
+
+    & a {
+      height: 24px;
     }
   }
 
