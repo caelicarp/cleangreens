@@ -104,7 +104,7 @@ h1 {
 
   & img {
     min-width: 100px;
-    max-width: 95%;
+    max-width: 98%;
     border-radius: 10px;
     margin-top: 1.2em;
   }
@@ -156,7 +156,7 @@ footer {
   background-color: #f3efe0;
   width: 100vw;
   height: auto;
-  padding: 2em 1em 2em;
+  padding: 1.2em 1em 2em;
 
   & > h3 {
     text-align: center;
