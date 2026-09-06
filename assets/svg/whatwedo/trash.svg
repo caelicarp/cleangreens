@@ -11,6 +11,8 @@
    inkscape:export-filename="garage.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
+   sodipodi:docname="trash.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +26,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#383838"
      inkscape:document-units="mm"
-     inkscape:export-bgcolor="#ffffff00"><inkscape:page
+     inkscape:export-bgcolor="#ffffff00"
+     inkscape:zoom="17.833478"
+     inkscape:cx="10.289636"
+     inkscape:cy="7.7943293"
+     inkscape:window-width="1270"
+     inkscape:window-height="764"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"><inkscape:page
        x="0"
        y="0"
        width="4.2333331"
@@ -36,6 +47,6 @@
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1"><path
-       d="M 1.4167253,0.17558691 1.3469714,0.38484834 H 0.57727282 c -0.1419134,0 -0.2565662,0.1146527 -0.2565662,0.2565655 0,0.141913 0.1146528,0.2565657 0.2565662,0.2565657 H 3.6560605 c 0.1419134,0 0.2565662,-0.1146527 0.2565662,-0.2565657 0,-0.1419128 -0.1146528,-0.2565655 -0.2565662,-0.2565655 H 2.886362 L 2.816608,0.17558691 C 2.7813185,0.07055555 2.6835171,0 2.5728756,0 H 1.6604641 C 1.5498162,0 1.4520021,0.0705556 1.4167253,0.17558691 Z M 3.6560605,1.2828281 H 0.57727282 l 0.1691739,2.5905115 c 0.012821,0.2028473 0.1812015,0.3599937 0.38404628,0.3599937 h 1.9723473 c 0.2028512,0 0.371219,-0.1571464 0.3840463,-0.3599937 z"
+       d="m 1.4604718,0.29690431 -0.065394,0.1961826 H 0.67348488 c -0.1330438,0 -0.2405308,0.1074869 -0.2405308,0.24053016 0,0.13304344 0.107487,0.24053033 0.2405308,0.24053033 H 3.5598483 c 0.1330441,0 0.2405309,-0.10748689 0.2405309,-0.24053033 0,-0.13304326 -0.1074868,-0.24053016 -0.2405309,-0.24053016 H 2.8382562 L 2.7728618,0.29690431 C 2.739778,0.19843745 2.6480889,0.1322916 2.5443624,0.1322916 H 1.6889766 c -0.1037319,0 -0.195433,0.0661459 -0.2285048,0.16461271 z M 3.5598483,1.3349427 H 0.67348488 L 0.83208541,3.7635475 C 0.84410504,3.9537168 1.0019618,4.1010416 1.1921285,4.1010416 h 1.849076 c 0.1901728,0 0.3480176,-0.1473248 0.3600433,-0.3374941 z"
        id="path1-37"
-       style="fill:#6b8e23;fill-opacity:1;stroke-width:0.00801764" /></g></svg>
+       style="fill:#6b8e23;fill-opacity:1;stroke-width:0.00751654" /></g></svg>
