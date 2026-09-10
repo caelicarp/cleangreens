@@ -1,2 +1,4 @@
 .DS_Store
+.env
 design/
+node_modules/
