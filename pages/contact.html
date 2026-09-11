@@ -6,6 +6,7 @@
 	<link rel="icon" href="../assets/svg/favicon.svg">
 	<link rel="stylesheet" href="../css/global.css">
 	<link rel="stylesheet" href="../css/navbar.css">
+	<link rel="stylesheet" href="../css/contact.css">
 	<title>Contact</title>
 </head>
 <body>
@@ -27,40 +28,52 @@
 
   <main>
     <h1>Hello!</h1>
-    <p>Nice to meet you, we will reach you back soon</p>
+    <h3 class="nicetomeetyou">We'll be chatting with you soon! :)</h3>
+
     <section class="company-info">
+      <section class="contact-info">
+        <div>
+          <p><img src="../assets/svg/location_dark.svg" alt="location mark icon" class="ci-icon"><strong>Denver, CO.</strong></p>
+        </div>
       <div>
-        <h3>Denver, CO.</h3>
+        <p><img src="../assets/svg/whatsapp_dark.svg" alt="whatsapp logo" class="ci-icon"><b>(303) 956-6673</b></p>
+        <p><img src="../assets/svg/phone_dark.svg" alt="phone icon" class="ci-icon"><b>(720) 635-1858</b></p>
       </div>
-      <div>
-        <p>+1 303-956-6673</p>
-        <p>+1 720-635-1858</p>
-      </div>
+      </section>
+
+      <p class="email-p"><img src="../assets/svg/envelope_dark.svg" alt="email icon" class="ci-icon"><b>contact@cleangreensllc.com</b></p>
+     
+        <section class="contact-social-media">
+        <a href="https://www.facebook.com/people/Clean-Greens-LLC/61593976450934/" target="_blank"><img src="/assets/svg/facebook_dark.svg" alt="facebook logo svg"></a>
+        <a href="https://www.instagram.com/cleangreensll/" target="_blank"><img src="/assets/svg/instagram_dark.svg" alt="instagram logo svg"></a>
+        <a href="https://nextdoor.com/pages/clean-greens-llc-aurora-co/" target="_blank"><img src="/assets/svg/nextdoor_dark.svg" alt="facebook logo svg"></a>
+      </section>
     </section>
 
-    <form id="contact-form" action="http://localhost:3000/contact" method="post">
+    <form id="contact-form" action="../php/send_email.php" method="post">
+      <h2>Contact Us</h2>
       <div>
-        <label for="name">Name</label>
-        <input name="name" placeholder="John Smith">
+        <label for="name"><b>Name</b></label>
+        <input name="name" id="name" type="text" required>
       </div>
 
       <div>
-        <label for="email">E-mail</label>
-        <input name="email" placeholder="info@example.com">
+        <label for="email"><b>Email</b></label>
+        <input name="email" id="email" type="email" required>
       </div>
 
       <div>
-        <label for="subject">Subject</label>
-        <input name="subject" placeholder="How can we help you? :)">
+        <label for="subject"><b>Subject</b></label>
+        <input name="subject" id="subject" type="text" required>
       </div>
 
       <div>
-        <label for="message">Message</label>
-        <textarea name="message" placeholder="Write your message here, please"></textarea>
+        <label for="message"><b>Your message</b></label>
+        <textarea name="message" id="message" required></textarea>
       </div>
 
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="cg-button">Submit</button>
       </div>
     </form>
   </main>

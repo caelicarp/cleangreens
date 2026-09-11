@@ -1,0 +1,130 @@
+body {
+  background-color: #f5f1e8;
+}
+
+main {
+  padding: 6% 7% 5%;
+}
+
+h1 {
+  font-size: 2.7rem;
+  color: #8fb339;
+}
+
+h3 {
+  font-size: 1.2rem;
+  padding-top: .2rem;
+  color: #2d3a22;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 32px;
+  color: #2d3a22;
+  font-size: 1.12rem;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  height: 180px;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  & .contact-info {
+    display: flex;
+    gap: 30px;
+
+    & p {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+  }
+
+  & .ci-icon {
+    width: 16px;
+  }
+
+  & .email-p {
+    display: flex;
+    gap: 3px;
+    align-items: end;
+  }
+}
+
+.contact-social-media {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 16px;
+
+  & a {
+    display: flex;
+    align-items: center;
+  }
+
+  & img {
+    min-width: 25px;
+  }
+}
+
+#contact-form {
+  padding: 40px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & h2 {
+    font-size: 1.7rem;
+    color: #8fb339;
+    display: inline-block;
+    margin: auto;
+  }
+
+  & label {
+    color: #2d3a22;
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  & textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    min-height: 120px;
+    color: #2d3a22;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 2px solid #8fb339;
+  }
+
+  & .cg-button {
+    font-size: 1.1rem;
+    margin: 12px auto 0px;
+    width: 120px;
+    height: 45px;
+  }
+}
+
+input {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #8fb339;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2d3a22;
+}
+
+input:focus {
+  background-color: transparent;
+  border: none;
+  outline: transparent;
+  border-bottom: 2px solid #8fb339;
+}
