@@ -1,20 +1,15 @@
 <?php
 
-  require __DIR__ . '/vendor/phpmailer/src/Exception.php';
-  require __DIR__ . '/vendor/phpmailer/src/PHPMailer.php';
-  require __DIR__ . '/vendor/phpmailer/src/SMTP.php';
+  require __DIR__ . '/vendor/autoload.php';
 
-  use PHPMailer\PHPMailer\Exception as Exception;
-  use PHPMailer\PHPMailer\PHPMailer as PHPMailer;
-  use PHPMailer\PHPMailer\SMTP as SMTP;
+  use PHPMailer\PHPMailer\Exception;
+  use PHPMailer\PHPMailer\PHPMailer;
+  use Dotenv\Dotenv;
 
-  try {
-    
-  } catch (Exception $e) {
-    //throw
-  }
+  $dotenv = Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
 
-  if ($_SERVER['REQUEST_METHOD'] != "POST") {
+  if ($_SERVER['REQUEST_METHOD'] != "POST" || !empty($_POST['website_hp'])) {
     die(); // bye c:
   }
 
@@ -28,13 +23,49 @@
   $subject = trim($subject);
   $message = trim($message);
 
-  if (empty($name) == false
-      and empty(filter_var($email, FILTER_VALIDATE_EMAIL)) == false
-      and empty($subject) == false
-      and empty($message) == false ) {
-      echo "exito c:";
+  if (!empty($name)
+      && filter_var($email, FILTER_VALIDATE_EMAIL)
+      && !empty($subject)
+      && !empty($message)) {
+      
+      $mail = new PHPMailer(true);
+
+      try {
+
+        $mail->isSMTP();
+        $mail->Host = $_ENV['MAIL_HOST'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV['MAIL_USER'];
+        $mail->Password = $_ENV['MAIL_PASSWORD'];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = $_ENV['PORT'];
+
+        $mail->setFrom($_ENV['MAIL_USER'], 'Clean Greens LLC ©');
+        $mail->addAddress($_ENV['MAIL_TO']);
+        $mail->addReplyTo($email, $name);
+
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->Subject = "Contacto: $subject";
+
+        $mail->Body = "
+          <h3>Alguien contactó desde el formulario web:</h3>
+          <p><strong>Nombre:</strong> $name</p>
+          <p><strong>Correo:</strong> $email</p>
+          <p><strong>Asunto:</strong> $subject</p>
+          <p><strong>Mensaje:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>
+        ";
+
+        $mail->send();
+        
+        header('Location: ../pages/contact.html?status=success');
+        exit;
+      } catch (Exception $e) {
+        echo "Error al enviar: {$mail->ErrorInfo}";
+      }
+
   } else {
-    die();
+    die("Datos inválidos");
   }
 
 ?>
