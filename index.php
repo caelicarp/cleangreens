@@ -37,7 +37,7 @@
     <h1>Reliable Cleaning & Pet Sitting Services in Denver.</h1>
     <img src="assets/img/main.jpg" alt="person cleaning image">
     <h3>"Top-rated home cleaning and pet sitting services. Enjoy a spotless house and peace of mind for you, your family and your pets. Book your service today!"</h3>
-    <a href="" class="cg-button quote-button">Get a Free Quote</a>
+    <a href="pages/contact.html" class="cg-button quote-button">Get a Free Quote</a>
   </section>
 </main>
 
