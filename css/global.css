@@ -48,6 +48,8 @@ ul {
 .cg-button:hover {
   background-color: #6d8a2b;
   color: #e8f2d6;
+  outline: none;
+  border: none;
 }
 
 input {

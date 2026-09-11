@@ -109,6 +109,8 @@ h3 {
     margin: 12px auto 0px;
     width: 120px;
     height: 45px;
+    outline: none;
+    border: none;
   }
 }
 
