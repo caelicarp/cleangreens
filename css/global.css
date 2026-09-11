@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "Work Sans";
-	src: url('/assets/fonts/worksans_variable.ttf');
+	src: url('../assets/fonts/worksans_variable.ttf');
 }
 
 @font-face {
 	font-family: "Work Sans Italic";
-	src: url('/assets/fonts/worksans_italic_variable.ttf');
+	src: url('../assets/fonts/worksans_italic_variable.ttf');
 }
 
 * {
