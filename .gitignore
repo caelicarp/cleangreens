@@ -1,3 +1,8 @@
 .DS_Store
 /php/vendor
 /php/.env
+/img/casas
+/img/oficinas
+/img/mascotas
+/img/general
+/img/rvs

@@ -43,48 +43,58 @@
 </main>
 
 <?php
-// Carpeta donde se guardan las imágenes del slider
-$sliderDir = 'assets/img/slider/';
-$images = [];
+// Función reutilizable para escanear carpetas de imágenes
+function renderSlider($titulo, $carpeta) {
+    $images = [];
+    $targetDir = 'assets/img/' . $carpeta . '/';
 
-// Verificamos si la carpeta existe para leer su contenido
-if (is_dir($sliderDir)) {
-    $files = scandir($sliderDir);
-    foreach ($files as $file) {
-        // Filtramos solo archivos de imagen válidos
-        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
-            $images[] = $sliderDir . $file;
+    if (is_dir($targetDir)) {
+        $files = scandir($targetDir);
+        foreach ($files as $file) {
+            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+            if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
+                $images[] = $targetDir . $file;
+            }
         }
     }
-}
-?>
-
-<!-- Contenedor del Slider -->
-<div class="swiper cleangreens-slider">
-    <div class="swiper-wrapper">
-        <?php if (!empty($images)): ?>
-            <?php foreach ($images as $img): ?>
-                <div class="swiper-slide">
-                    <img src="<?php echo htmlspecialchars($img); ?>" alt="CleanGreens Banner">
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <!-- Mensaje de respaldo si la carpeta está vacía -->
-            <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666;">
-                <p>Sube imágenes a la carpeta assets/slider/ para mostrarlas aquí.</p>
+    
+    // Identificador único basado en el nombre de la carpeta
+    $sliderClass = 'slider-' . $carpeta;
+    ?>
+    <div class="cleangreens-section">
+        <h2><?php echo htmlspecialchars($titulo); ?></h2>
+        <div class="swiper cleangreens-slider <?php echo $sliderClass; ?>">
+            <div class="swiper-wrapper">
+                <?php if (!empty($images)): ?>
+                    <?php foreach ($images as $img): ?>
+                        <div class="swiper-slide">
+                            <img src="<?php echo htmlspecialchars($img); ?>" alt="<?php echo htmlspecialchars($titulo); ?>">
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="swiper-slide">
+                        <div class="slider-empty">
+                            No hay fotos en <?php echo htmlspecialchars($targetDir); ?> todavía, lol.
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
+            <!-- Paginación y botones específicos -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </div>
-    
-    <!-- Paginación (puntitos abajo) -->
-    <div class="swiper-pagination"></div>
-    
-    <!-- Botones de navegación (flechas laterales) -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-</div>
+    <?php
+}
 
+// Renderizamos los sliders en el orden exacto que pediste:
+renderSlider('We take care of your friends', 'mascotas');
+renderSlider('We clean your house', 'casas');
+renderSlider('Enjoy a clean work environment', 'oficinas');
+renderSlider('RVs Cleaning', 'rvs');
+renderSlider('General Cleaning', 'general');
+?>
 <section id="whatWeDo">
   <h3>WHAT TYPES OF CLEANING WE DO?</h3>
 
@@ -146,20 +156,30 @@ if (is_dir($sliderDir)) {
 <script src="js/nav_toggle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  const swiper = new Swiper('.cleangreens-slider', {
-    loop: true,               
-    autoplay: {
-      delay: 4500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  // Inicializamos todos los sliders que tengan la clase .cleangreens-slider de forma independiente
+  const swipers = document.querySelectorAll('.cleangreens-slider');
+  
+  swipers.forEach((sliderEl) => {
+    // Buscamos los controles específicos dentro de cada bloque de slider
+    const nextBtn = sliderEl.querySelector('.swiper-button-next');
+    const prevBtn = sliderEl.querySelector('.swiper-button-prev');
+    const paginationEl = sliderEl.querySelector('.swiper-pagination');
+
+    new Swiper(sliderEl, {
+      loop: true,
+      autoplay: {
+        delay: 5000, // 5 segundos por foto
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: paginationEl,
+        clickable: true,
+      },
+      navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+      },
+    });
   });
 </script>
 </body>
