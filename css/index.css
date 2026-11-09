@@ -1,5 +1,5 @@
 .title-section {
-  background-image: url('/assets/img/header_background.jpg');
+  background-image: url('../assets/img/header_background.jpg');
   background-size: 100vw;
   background-position: bottom 42% right 50%;
   width: 100vw;
@@ -132,7 +132,6 @@ footer {
   }
 }
 
-/* Contenedor general para cada sección de slider */
 .cleangreens-section {
   max-width: 900px;
   margin: 40px auto;
@@ -141,21 +140,19 @@ footer {
 
 .cleangreens-section h2 {
   font-size: 2rem;
-  color: #4a5d23; /* Color corporativo verde */
+  color: #4a5d23;
   margin-bottom: 15px;
   margin-top: 35px;
   text-align: center;
   font-weight: 700;
 }
 
-/* Estilos del carrusel */
 .cleangreens-slider {
   width: 100%;
   height: 400px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  /* Color de las flechas y puntos */
   --swiper-theme-color: #8fb339; 
 }
 
@@ -165,7 +162,6 @@ footer {
   object-fit: cover;
 }
 
-/* Mensaje cuando la carpeta está vacía */
 .slider-empty {
   display: flex;
   align-items: center;
@@ -178,7 +174,6 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Ajuste responsivo para celulares y tablets */
 @media (max-width: 768px) {
   .cleangreens-section {
       margin: 25px auto;
@@ -189,5 +184,162 @@ footer {
   .cleangreens-slider {
       height: 320px;
       border-radius: 8px;
+  }
+}
+
+.reviews-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 15px;
+}
+
+.reviews-section h2 {
+  color: #4a5d23;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.reviews-summary {
+  background: #f5f1e8;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.rating-average h3 {
+  font-size: 2.5rem;
+  color: #4a5d23;
+  margin: 0;
+}
+
+.stars {
+  color: #ffc107;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.star-input {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.star-input input {
+  display: none;
+}
+
+.star-input label {
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.star-input input:checked ~ label,
+.star-input label:hover,
+.star-input label:hover ~ label {
+  color: #ffc107;
+}
+
+.review-form-box {
+  background: #f5f1e8;
+  border: 1px solid #e6dec5;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+}
+
+.review-form-box input[type="text"], 
+.review-form-box textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #dcd3be;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  color: #2d3a22;
+}
+
+.review-form-box textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.review-form-box button {
+  background-color: #8fb339;
+  color: #2d3a22;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 99px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.review-form-box button:hover {
+  background-color: #7a9f2d;
+  color: #fff;
+}
+
+.review-card {
+  background: #fff;
+  border-left: 5px solid #8fb339;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  margin-bottom: 20px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.review-author {
+  font-weight: 700;
+  color: #2d3a22;
+  font-size: 1.1rem;
+}
+
+.review-date {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.alert-error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+@media(max-width: 768px) {
+  .reviews-summary {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
   }
 }

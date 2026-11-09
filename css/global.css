@@ -28,6 +28,10 @@ ul {
   list-style: none;
 }
 
+button {
+  font-family: "Work Sans";
+}
+
 .cg-button {
   display: inline-flex;
   justify-content: center;

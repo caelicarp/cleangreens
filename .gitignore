@@ -1,6 +1,6 @@
 .DS_Store
-/php/vendor
 /php/.env
+/php/db.php
 assets/img/mascotas/*.jpg
 assets/img/mascotas/*.jpeg
 assets/img/mascotas/*.png
