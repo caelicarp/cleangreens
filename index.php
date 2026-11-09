@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/navbar.css">
 	<link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 	<title>Home | Clean Greens</title>
 </head>
 <body>
@@ -40,6 +41,49 @@
     <a href="pages/contact.html" class="cg-button quote-button">Get a Free Quote</a>
   </section>
 </main>
+
+<?php
+// Carpeta donde se guardan las imágenes del slider
+$sliderDir = 'assets/img/slider/';
+$images = [];
+
+// Verificamos si la carpeta existe para leer su contenido
+if (is_dir($sliderDir)) {
+    $files = scandir($sliderDir);
+    foreach ($files as $file) {
+        // Filtramos solo archivos de imagen válidos
+        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
+            $images[] = $sliderDir . $file;
+        }
+    }
+}
+?>
+
+<!-- Contenedor del Slider -->
+<div class="swiper cleangreens-slider">
+    <div class="swiper-wrapper">
+        <?php if (!empty($images)): ?>
+            <?php foreach ($images as $img): ?>
+                <div class="swiper-slide">
+                    <img src="<?php echo htmlspecialchars($img); ?>" alt="CleanGreens Banner">
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <!-- Mensaje de respaldo si la carpeta está vacía -->
+            <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666;">
+                <p>Sube imágenes a la carpeta assets/slider/ para mostrarlas aquí.</p>
+            </div>
+        <?php endif; ?>
+    </div>
+    
+    <!-- Paginación (puntitos abajo) -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- Botones de navegación (flechas laterales) -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
 
 <section id="whatWeDo">
   <h3>WHAT TYPES OF CLEANING WE DO?</h3>
@@ -100,5 +144,23 @@
 </footer>
 
 <script src="js/nav_toggle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.cleangreens-slider', {
+    loop: true,               
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
 </body>
 </html>
